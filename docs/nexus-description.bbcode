@@ -1,0 +1,72 @@
+[size=5][b]TractorMod Expanded[/b][/size]
+[i]A tractor that works through farm implements you buy, upgrade and attach.[/i]
+Based on [url=https://github.com/Pathoschild/StardewMods/tree/stable/TractorMod]Tractor Mod[/url] by [b]Pathoschild[/b] (MIT License).
+
+[line]
+[size=4][b]What it does[/b][/size]
+[list]
+[*][b]The tractor does nothing on its own.[/b] Buy implements from Robin and attach them; the tool in your hand no longer works while riding.
+[*][b]14 implements[/b]: plow, seeder, water tank (3 levels), rock breaker (2 levels), wood cutter (2 levels), produce, grain, bush and fruit tree harvesters, and a mower.
+[*][b]Blueprint hitch menu[/b] (press [b]I[/b] while riding): click or drag an implement onto the tractor; it slides in and locks with a clank.
+[*][b]Upgrades at Clint[/b], in his [i]Upgrade tools[/i] menu.
+[*][b]Never lose an implement[/b]: getting off the tractor (dismount, warp, cutscene, passing out, sending it home) always gives the implement back — to your inventory, or the ground if it's full.
+[*][b]New art[/b]: a new compact tractor in 3 colours, a new garage, implement sprites for every direction and level, inventory icons, work effects and working animations. The water tank visibly empties.
+[/list]
+
+[line]
+[size=4][b]Implements[/b][/size]
+[list]
+[*][b]Plow[/b] (rear) — tills soil, clears weeds, digs artifact spots. 10,000g + 10 iron bars.
+[*][b]Seeder[/b] (rear) — fertilizes then plants from a 9-slot hopper (crop seeds incl. mod seeds, fertilizers; not saplings). 25,000g + 10 iron bars.
+[*][b]Water tank[/b] (rear) — 200 / 400 / 800 tiles. Refill: face water and right-click (5 seconds). 15,000g + 10 copper → Clint: 30,000g + 10 gold → 60,000g + 5 iridium.
+[*][b]Rock breaker[/b] (front) — stones and ore; heavy level also boulders and meteorites. 15,000g + 10 iron → Clint: 40,000g + 5 gold.
+[*][b]Wood cutter[/b] (front) — wild trees at every growth stage, stumps, twigs; [b]never fruit trees[/b] or tapped trees. Level 1 can't break large stumps or hollow logs; the heavy (gold) level can. 15,000g + 10 iron → Clint: 40,000g + 5 gold.
+[*][b]Produce harvester[/b] (front) — vegetables, fruit crops, flowers, herbs, beans, forage. 20,000g + 5 gold bars.
+[*][b]Grain harvester[/b] (front) — wheat, corn, rice, amaranth and mod grains (grain context tags). 20,000g + 5 gold bars.
+[*][b]Bush harvester[/b] (front) — tea, berry and Custom Bush bushes. 15,000g + 5 gold bars.
+[*][b]Fruit tree harvester[/b] (front) — fruit trees and palm trees. 25,000g + 5 gold bars.
+[*][b]Mower[/b] (rear) — weeds, grass, green rain bushes. 5,000g + 5 copper bars.
+[/list]
+All prices and materials can be changed in [i]config.json[/i].
+
+[line]
+[size=4][b]Requirements[/b][/size]
+[list]
+[*][url=https://smapi.io/]SMAPI[/url] 4.1.10+ and Stardew Valley 1.6.15+. [b]That's the only requirement.[/b]
+[*][b]Remove Tractor Mod by Pathoschild[/b] — TractorMod Expanded replaces it (they can't run together). Your tractor and garage keep working.
+[/list]
+[b]Optional:[/b]
+[list]
+[*][url=https://www.nexusmods.com/stardewvalley/mods/5098]Generic Mod Config Menu[/url] — in-game settings (tractor colour, effects, speed…).
+[*][url=https://www.nexusmods.com/stardewvalley/mods/20357]Item Extensions[/url] — its custom seeds and resources work with the tractor.
+[*][url=https://www.nexusmods.com/stardewvalley/mods/33271]Compact Searchable Shop Menu[/url] — implements get their own tab in Robin's shop.
+[/list]
+
+[line]
+[size=4][b]Installation[/b][/size]
+[list=1]
+[*]Install SMAPI.
+[*]Unzip the mod into [i]Stardew Valley/Mods[/i] (you should get [i]Mods/TractorModExpanded[/i]).
+[*]Remove or disable [i]Mods/TractorMod[/i].
+[*]Run the game through SMAPI.
+[/list]
+
+[line]
+[size=4][b]Configuration[/b][/size]
+Main options: [b]TractorSkin[/b] (Green / Red / Blue / Original), [b]ShowImplementEffects[/b], [b]TractorSpeed[/b] (default -4), [b]Distance[/b], [b]WaterTankCapacity[/b], [b]InfiniteWater[/b], [b]ImplementPrices[/b], [b]GrainCrops[/b]. Keys: summon/dismiss [b]Backspace[/b], hitch menu [b]I[/b]. The full list is in the README on GitHub.
+
+[line]
+[size=4][b]Compatibility[/b][/size]
+[list]
+[*]Single player and multiplayer (every player needs the mod).
+[*]Saves from Tractor Mod work (same save data).
+[*]With CJB Cheats Menu's [i]Auto water[/i] on, the water tank has nothing to water.
+[/list]
+
+[line]
+[size=4][b]Credits and license[/b][/size]
+[list]
+[*][b]Tractor Mod[/b] and [b]SMAPI[/b] by [b]Pathoschild[/b] — the original mod this is based on: [url=https://github.com/Pathoschild/StardewMods/tree/stable/TractorMod]github.com/Pathoschild/StardewMods/tree/stable/TractorMod[/url]. Tractor Mod versions before 4.0 by PhthaloBlue. TractorMod Expanded keeps its base: the tractor, garage, summoning, tool attachments, audio and config menu.
+[*][b]New in TractorMod Expanded[/b] (by appendriel): the implement system, hitch menu, upgrades at Clint, implement rules, automatic return on dismount, new tractor/garage/implement art, icons, effects, animations and the Item Extensions bridge.
+[*]License: MIT. The original copyright notices are kept.
+[/list]

@@ -1,0 +1,17 @@
+<Project>
+  <!-- common build settings -->
+  <PropertyGroup>
+    <Authors>Pathoschild</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Pathoschild/StardewMods</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <EnableModZip>false</EnableModZip>
+    <ModFolderName>TractorModExpanded</ModFolderName>
+    <EnableModDeploy>true</EnableModDeploy>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,17 @@
+{
+    "Name": "TractorMod Expanded",
+    "Author": "appendriel (based on Tractor Mod by Pathoschild)",
+    "Version": "%ProjectVersion%",
+    "MinimumApiVersion": "4.1.10",
+    "MinimumGameVersion": "1.6.15",
+    "UniqueID": "appendriel.TractorModExpanded",
+    "Description": "A tractor that works through farm implements you buy, upgrade and attach: plow, seeder, water tank, rock breaker, wood cutter, harvesters and mower. Based on Tractor Mod by Pathoschild.",
+    "EntryDll": "TractorModExpanded.dll",
+    "Dependencies": [
+        { "UniqueID": "spacechase0.GenericModConfigMenu", "IsRequired": false },
+        { "UniqueID": "mistyspring.ItemExtensions", "IsRequired": false },
+        { "UniqueID": "mushymato.CompactSearchableShopMenu", "IsRequired": false },
+        { "UniqueID": "furyx639.ToolbarIcons", "IsRequired": false }
+    ],
+    "UpdateKeys": []
+}
