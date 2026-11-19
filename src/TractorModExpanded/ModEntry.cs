@@ -650,23 +650,11 @@ internal class ModEntry : Mod
         ImplementData.ExtraGrainItems = [.. this.Config.GrainCrops.Select(id => id.StartsWith("(") ? id : "(O)" + id)]; // no ItemRegistry here: item data isn't loaded when the mod starts
         ImplementData.ClearGrainCache();
 
-        // update tractor and garage colour
+        // update tractor colour (the garage doesn't change with it)
         if (Context.IsWorldReady)
         {
             this.Helper.GameContent.InvalidateCache($"{this.PublicAssetBasePath}/Tractor");
-            this.Helper.GameContent.InvalidateCache($"{this.PublicAssetBasePath}/Garage");
             this.TextureManager.UpdateTextures();
-            foreach (GameLocation location in this.GetLocations())
-            {
-                Texture2D? garageTexture = this.TextureManager.LoadGarageTextureFromFile();
-                foreach (Stable garage in this.GetGaragesIn(location))
-                {
-                    if (garageTexture != null)
-                        garage.texture = new Lazy<Texture2D>(() => garageTexture);
-                    else
-                        garage.resetTexture();
-                }
-            }
             foreach (GameLocation location in this.GetLocations())
             {
                 Texture2D? texture = this.TextureManager.LoadTractorTextureFromFile();

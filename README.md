@@ -29,7 +29,7 @@ See [Credits and license](#credits-and-license).
   tractor. It slides into place and locks with a metal clank.
 - **Getting off the tractor always gives the implement back** — dismounting, warping, cutscenes, passing out or sending the
   tractor home. If your inventory is full, it drops on the ground at your feet. It is never lost.
-- **New art:** a new compact tractor in three colours, a new garage, implement sprites for every direction and level,
+- **New art:** a new compact tractor in three colours, a modernized garage (metal roof, solar panels, roll-up door, workshop inside), implement sprites for every direction and level,
   inventory icons, work effects (dust, wood chips, sparks, seeds, water, leaves) and working animations (spinning saw and
   blades, turning reel, moving belt, hammering rock breaker…). The water tank visibly empties as you use it.
 
@@ -40,7 +40,7 @@ See [Credits and license](#credits-and-license).
 | Blueprint hitch menu | ![Hitch menu](docs/screenshots/hitch-menu.png) |
 | Working animations and the tank emptying (frames) | ![Working animations](docs/screenshots/working-animations.png) |
 | Work effects | ![Effects](docs/screenshots/effects.png) |
-| Garage colours | ![Garage](docs/screenshots/garage-colours.png) |
+| Garage (original → modern) | ![Garage](docs/screenshots/garage-modern.png) |
 | Implements tab in Robin's shop (Compact Searchable Shop Menu) | ![Robin's shop](docs/screenshots/robin-shop-tab.png) |
 
 > GIFs: record the tractor working and attaching an implement and add them to `docs/gifs/` (placeholders:
@@ -91,7 +91,7 @@ Edit `config.json` in the mod folder (created on first launch), or use
 ### Main options
 | Key | Type | Default | Effect |
 |---|---|---|---|
-| `TractorSkin` | text | `Green` | Tractor (and garage) colour: `Green` (yellow rims), `Red` (cream rims), `Blue` (white rims) or `Original` (Tractor Mod's sprite). Changes immediately. |
+| `TractorSkin` | text | `Green` | Tractor colour (the garage always uses its own sprite): `Green` (yellow rims), `Red` (cream rims), `Blue` (white rims) or `Original` (Tractor Mod's sprite). Changes immediately. |
 | `ShowImplementEffects` | true/false | `true` | Small effects while implements work (dust, chips, sparks, seeds, water, leaves). |
 | `TractorSpeed` | number | `-4` | Speed buff while riding (negative is slower). |
 | `Distance` | number | `1` | Tiles worked around the tractor in each direction (1 = 3×3 area). |
@@ -192,7 +192,7 @@ The inventory icons (`art/icones.ps1`) are built from source images in `art/icon
 - **New in TractorMod Expanded** (by appendriel): the implement system (items, shops, upgrades at Clint, hitch menu with
   drag and drop, automatic return on dismount), the per-implement rules (wood cutter growth stages and fruit-tree
   protection, grain/produce/bush/fruit-tree harvesters, mower, seeder hopper, water tank with refill and gauge), the new
-  tractor and garage sprites in three colours, implement sprites for every direction and level, inventory icons, work effects
+  tractor sprites in three colours, the modernized garage (based on the original), implement sprites for every direction and level, inventory icons, work effects
   and animations, the Item Extensions bridge, and the automated in-game tests.
 - Inventory icon art based on images created by the author with Google Gemini.
 - License: [MIT](LICENSE). The original copyright notices are kept, as the license requires.

@@ -230,6 +230,7 @@ internal sealed class TestRunner
             ("implement-draw", this.TestImplementDraw),
             ("implement-animation", this.TestImplementAnimation),
             ("garage-skin", this.TestGarageSkin),
+            ("language-english", this.TestEnglishLanguage),
             ("held-tool-does-nothing", this.TestHeldToolDoesNothing),
             ("plow", this.TestPlow),
             ("rock-breaker-1", () => this.TestRockBreaker(1)),
@@ -524,7 +525,7 @@ internal sealed class TestRunner
         yield return 10;
     }
 
-    /// <summary>Build a garage in memory (never saved), switch the colour and check its texture.</summary>
+    /// <summary>Build a garage in memory (never saved), switch the tractor colour and check the garage keeps its single (modern) sprite.</summary>
     private IEnumerable<int> TestGarageSkin()
     {
         Farm farm = Game1.getFarm();
@@ -534,27 +535,51 @@ internal sealed class TestRunner
         farm.buildings.Add(garage);
         yield return 20;
 
-        (TractorSkin Skin, Color Expected)[] cases =
-        [
-            (TractorSkin.Green, new Color(0x3E, 0x9A, 0x3A)),
-            (TractorSkin.Red, new Color(0xC8, 0x38, 0x2A)),
-            (TractorSkin.Blue, new Color(0x5A, 0xA9, 0xE6))
-        ];
-        foreach ((TractorSkin skin, Color expected) in cases)
+        Color solarPanel = new(0x1F, 0x2E, 0x52); // a solar panel cell on the modern garage roof
+        foreach (TractorSkin skin in new[] { TractorSkin.Green, TractorSkin.Red, TractorSkin.Blue, TractorSkin.Original })
         {
             this.Context.SetSkin(skin);
             yield return 30;
             Texture2D texture = garage.texture.Value;
             Color[] data = new Color[1];
-            texture.GetData(0, new Rectangle(31, 40, 1, 1), data, 0, 1); // tractor on the sign
-            this.Check($"garage skin {skin} is applied", data[0] == expected, $"pixel={data[0]} expected={expected}");
-            this.Screenshot($"garage-{skin}");
+            texture.GetData(0, new Rectangle(17, 9, 1, 1), data, 0, 1);
+            this.Check($"garage keeps the modern sprite with tractor colour {skin}", data[0] == solarPanel, $"pixel={data[0]} expected={solarPanel}");
             yield return 2;
         }
+        this.Screenshot("garage-modern");
 
         farm.buildings.Remove(garage);
         this.Context.SetSkin(original);
         yield return 10;
+    }
+
+    /// <summary>Switch the game to English (in memory only, never saved) and check the mod's item texts follow, then switch back.</summary>
+    private IEnumerable<int> TestEnglishLanguage()
+    {
+        LocalizedContentManager.LanguageCode original = LocalizedContentManager.CurrentLanguageCode;
+        (string Id, string English)[] cases =
+        [
+            ("Plow", "Plow"), ("Seeder", "Seeder"), ("WateringTank1", "Water Tank"), ("Pickaxe2", "Heavy Rock Breaker"),
+            ("WoodCutter1", "Wood Cutter"), ("HarvesterGrain", "Grain Harvester"), ("HarvesterFruitTree", "Fruit Tree Shaker"), ("Mower", "Mower")
+        ];
+
+        LocalizedContentManager.CurrentLanguageCode = LocalizedContentManager.LanguageCode.en;
+        yield return 30;
+        foreach ((string id, string english) in cases)
+        {
+            Item item = ItemRegistry.Create("(O)" + ImplementData.IdPrefix + id);
+            this.Check($"English name of {id}", item.DisplayName == english, $"name='{item.DisplayName}' expected='{english}'");
+        }
+        Item plow = ItemRegistry.Create("(O)" + ImplementData.IdPrefix + "Plow");
+        this.Check("English description", plow.getDescription().Contains("Tills the soil"), $"description='{plow.getDescription()}'");
+
+        LocalizedContentManager.CurrentLanguageCode = LocalizedContentManager.LanguageCode.pt;
+        yield return 30;
+        string ptName = ItemRegistry.Create("(O)" + ImplementData.IdPrefix + "Plow").DisplayName;
+        this.Check("Portuguese name comes back", ptName == "Arado", $"name='{ptName}'");
+
+        LocalizedContentManager.CurrentLanguageCode = original;
+        yield return 30;
     }
 
     /// <summary>Check the working animation frames and the tank drain, and save them as pictures.</summary>

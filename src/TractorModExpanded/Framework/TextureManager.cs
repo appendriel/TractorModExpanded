@@ -208,9 +208,10 @@ internal class TextureManager : IDisposable
         string seasonalKey = $"{Game1.currentSeason}_{spritesheet}.png";
         string defaultKey = $"{spritesheet}.png";
 
-        // TractorMod Expanded: tractor colour chosen in the config (falls back to the original sprite if the file is missing)
+        // TractorMod Expanded: tractor colour chosen in the config (falls back to the original sprite if the file is missing);
+        // the garage has a single sprite (garage.png) whatever the tractor colour
         List<string> keys = [seasonalKey, defaultKey];
-        if ((spritesheet.Equals("tractor", StringComparison.OrdinalIgnoreCase) || spritesheet.Equals("garage", StringComparison.OrdinalIgnoreCase)) && this.GetSkin() != TractorSkin.Original)
+        if (spritesheet.Equals("tractor", StringComparison.OrdinalIgnoreCase) && this.GetSkin() != TractorSkin.Original)
             keys.Insert(0, $"{spritesheet}_{this.GetSkin().ToString().ToLowerInvariant()}.png");
 
         foreach (string possibleKey in keys)
