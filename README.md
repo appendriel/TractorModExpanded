@@ -160,29 +160,23 @@ example the wood cutter and the harvesters have their own rules).
 Repository layout:
 ```
 TractorModExpanded/
-├─ README.md, LICENSE, .gitignore, TractorModExpanded.sln
+├─ README.md, CHANGELOG.md, LICENSE, .gitignore, TractorModExpanded.sln
 ├─ src/
 │  ├─ Directory.Build.props, Directory.Packages.props
 │  ├─ Common/                    shared code from Pathoschild's StardewMods
-│  └─ TractorModExpanded/            the mod project (C#, manifest.json, assets/, i18n/)
+│  └─ TractorModExpanded/        the mod project (C#, manifest.json, assets/, i18n/)
 │     └─ Framework/Implements/   implements: data, manager, menu, renderer, animator, effects, water tank, seeder hopper
-├─ art/                          pixel-art sources (text maps) and the scripts that render the sprites
-├─ docs/                         README images (sprites, screenshots)
-├─ testes/                       automated in-game test runner script
-└─ tools/package.ps1             builds the Nexus package
+└─ docs/                         README images (sprites, screenshots) and the Nexus page text
 ```
 
 Build (Windows, .NET SDK 10; the project targets .NET 6 like the game):
 ```
 dotnet build src/TractorModExpanded/TractorModExpanded.csproj -c Release "-p:GamePath=<path to Stardew Valley>"
 ```
-Package for Nexus: `tools/package.ps1` → `releases/TractorMod Expanded v<version>.zip`.
+The build copies the mod into the game's `Mods` folder (Pathoschild.Stardew.ModBuildConfig).
 
-Automated tests: `testes/rodar-testes.sh` (Git Bash) starts the game, loads a test save without ever saving it, runs the
-in-game tests in `Framework/Testing/TestRunner.cs`, takes screenshots and closes the game. The test runner only runs when a
-fresh `test-mode.json` exists in the mod folder (created and removed by the script; stale files are ignored).
-Set the test save's folder name in `testes/test-save.txt` (not versioned) or the `TEST_SAVE` environment variable.
-The inventory icons (`art/icones.ps1`) are built from source images in `art/icon-sources/` (not versioned).
+`Framework/Testing/TestRunner.cs` holds in-game tests. They never run in normal play: they only start when a fresh
+`test-mode.json` is in the mod folder, and they never save the game.
 
 ## Credits and license
 - **Tractor Mod** and **SMAPI** were created by **Pathoschild** (Jesse Plamondon-Willard); Tractor Mod versions before 4.0

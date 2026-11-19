@@ -33,3 +33,8 @@ Desktop.ini
 testes/test-save.txt
 # source images for the inventory icons
 art/icon-sources/
+
+# local helper scripts (art generation, packaging, in-game test launcher): kept out of the repository
+art/
+testes/
+tools/
