@@ -66,7 +66,7 @@ breaker and the four harvesters.
 | ![](docs/sprites/icon_wood_cutter_1.png) | ![](docs/sprites/cortador_nivel1_lado.png) | **Wood cutter** (level 1) | Cuts wild trees at every growth stage, tree stumps and twigs. | 15,000g + 10 iron bars (Robin) | Never cuts fruit trees or tapped trees. Can't break large stumps or hollow logs. |
 | ![](docs/sprites/icon_wood_cutter_2.png) | ![](docs/sprites/cortador_nivel2_lado.png) | Heavy wood cutter (level 2) | Also large stumps and hollow logs. | 40,000g + 5 gold bars (Clint) | Gold blade. Never fruit trees. |
 | ![](docs/sprites/icon_harvester_produce.png) | ![](docs/sprites/colheitadeira_legumes_lado.png) | **Produce harvester** | Harvests vegetables, fruit crops, flowers, herbs, beans and spawned forage. | 20,000g + 5 gold bars (Robin) | Leaves grains and trees. |
-| ![](docs/sprites/icon_harvester_grain.png) | ![](docs/sprites/colheitadeira_graos_lado.png) | **Grain harvester** | Harvests grains: wheat, corn, rice, amaranth and mod grains. | 20,000g + 5 gold bars (Robin) | A grain is a crop whose harvest has the `grain_item`, `rice_item` or `wheat_item` context tag, or is listed in `GrainCrops`. |
+| ![](docs/sprites/icon_harvester_grain.png) | ![](docs/sprites/colheitadeira_graos_lado.png) | **Grain harvester** | Harvests grains: wheat, corn, rice, amaranth and mod grains. | 20,000g + 5 gold bars (Robin) | A grain is the base game's wheat, corn, rice or amaranth, a crop whose harvest has the `grain_item`, `rice_item` or `wheat_item` context tag, or one listed in `GrainCrops`. |
 | ![](docs/sprites/icon_harvester_bush.png) | ![](docs/sprites/colheitadeira_arbustos_lado.png) | **Bush harvester** | Harvests tea bushes, berry bushes and Custom Bush bushes. | 15,000g + 5 gold bars (Robin) | Leaves crops. |
 | ![](docs/sprites/icon_harvester_fruit_tree.png) | ![](docs/sprites/colheitadeira_frutiferas_lado.png) | **Fruit tree harvester** | Shakes fruit trees and palm trees for their fruit. | 25,000g + 5 gold bars (Robin) | Doesn't cut anything. |
 | ![](docs/sprites/icon_mower.png) | ![](docs/sprites/rocadeira_lado.png) | **Mower** | Cuts weeds, grass and green rain bushes. | 5,000g + 5 copper bars (Robin) | Leaves crops. |
@@ -151,7 +151,7 @@ example the wood cutter and the harvesters have their own rules).
 | Iconic Framework (`furyx639.ToolbarIcons`) | Toolbar button to summon the tractor. |
 
 ## Compatibility
-- Works in single player. Multiplayer: every player needs TractorMod Expanded; the host must have version 1.0.0 or later.
+- Tested on Windows in single player. Multiplayer and split-screen have not been tested yet; in multiplayer every player needs TractorMod Expanded (host on version 1.0.0 or later).
 - Saves from Tractor Mod work: the tractor and garage use the same save data keys.
 - Custom-seed mods that use the vanilla crop data (Cornucopia, SVE, etc.) work with the seeder.
 - With CJB Cheats Menu's *Auto water* enabled, all tilled soil is already watered, so the water tank has nothing to do.

@@ -105,6 +105,9 @@ internal static class ImplementData
     /// <summary>Cached grain checks by harvest item ID.</summary>
     private static readonly Dictionary<string, bool> GrainCache = [];
 
+    /// <summary>The base game's grains (wheat, corn, unmilled rice, amaranth). Always grain, whatever the config, since their items don't have a grain context tag in the base game.</summary>
+    public static readonly HashSet<string> VanillaGrainItems = ["(O)262", "(O)270", "(O)271", "(O)300"];
+
     /// <summary>The default extra grain items (grains whose items have no grain context tag).</summary>
     public static string[] DefaultExtraGrainItems => ["(O)271", "(O)BFV.FruitVeggie_Blue_Corn", "(O)BFV.FruitVeggie_Oats"];
 
@@ -120,7 +123,8 @@ internal static class ImplementData
         if (!GrainCache.TryGetValue(qualifiedId, out bool isGrain))
         {
             isGrain =
-                ExtraGrainItems.Contains(qualifiedId)
+                VanillaGrainItems.Contains(qualifiedId)
+                || ExtraGrainItems.Contains(qualifiedId)
                 || StardewValley.ItemContextTagManager.HasBaseTag(qualifiedId, "grain_item")
                 || StardewValley.ItemContextTagManager.HasBaseTag(qualifiedId, "rice_item")
                 || StardewValley.ItemContextTagManager.HasBaseTag(qualifiedId, "wheat_item");
